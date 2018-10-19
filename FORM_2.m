@@ -1,4 +1,4 @@
-function [SVS] = FORM_2(SVS)
+function [SVS] = FORM_2(SVS,plt)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %GENERAL DATA INPUT
 %For more information of each element, check FORM 2A to FORM 2B in the SVS
@@ -47,9 +47,9 @@ GEOMETRY.VENT_SECTIONS=[...
 
 %-------------------------------------------------------------------------%
 %DO NOT EDIT UNDER THIS LINE
-
-plot_network(GEOMETRY.NODES,GEOMETRY.LINE_SECTIONS,GEOMETRY.VENT_SECTIONS);
-
+if plt==1
+    plot_network(GEOMETRY.NODES,GEOMETRY.LINE_SECTIONS,GEOMETRY.VENT_SECTIONS);
+end
 SVS.GEOMETRY=GEOMETRY;
 
 %Count nodes, line sections, vent sections, segments and junctions and edit

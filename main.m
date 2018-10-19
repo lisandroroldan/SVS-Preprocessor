@@ -8,8 +8,7 @@ clear; clc; close all; SVS=struct;
 [SVS] = FORM_1(SVS); 
 
 %2) SYSTEM GEOMETRY
-[SVS] = FORM_2(SVS); 
+[SVS] = FORM_2(SVS,1); 
 
-
-
-%3) General properties definition
+%3) SEGMENT DATA STRUCTURE
+[SVS] = segment_structure(SVS); 
