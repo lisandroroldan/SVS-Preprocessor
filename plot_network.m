@@ -1,9 +1,6 @@
 function  plot_network(NODES,LINE_SECTIONS,VENT_SECTIONS)
 
-
-figure(1)
 hold on
-
 
 for i=1:length(LINE_SECTIONS)
        
@@ -68,6 +65,5 @@ view(3);
 grid on;
 
 title('NETWORK GEOMETRY');
-set(gcf, 'Units', 'Normalized', 'OuterPosition', [0.5, 0.5, 0.5, 0.5]);
 
-legend([h3 h4 h2  h1],{'Nodes','Line sections','Vent. shaft sections','Segment interfaces'});
+rotate3d on

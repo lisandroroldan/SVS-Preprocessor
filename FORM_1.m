@@ -146,7 +146,7 @@ PROP.init_file_wr_opt=5;
     %3 - Thermodynamic initialization only
     %4 - Aerodynamic and train initialization
     %5 - Aerodynamic, train, and thermodynamic initialization (0<=N<=5)
-PROP.init_file_wr_opt=0;
+PROP.init_file_rd_opt=0;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
