@@ -22,7 +22,7 @@ function varargout = main_gui(varargin)
 
 % Edit the above text to modify the response to help main_gui
 
-% Last Modified by GUIDE v2.5 22-Oct-2018 15:28:35
+% Last Modified by GUIDE v2.5 23-Oct-2018 15:50:39
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -113,7 +113,8 @@ for i=1:max(max(A))
 end
 SVS.GENERAL_DATA.n_br_junct=c;
 
-segment_structure; 
+segment_structure;
+vent_shaft_structure;
  
 
 % --- Executes on key press with focus on pushbutton1 and none of its controls.
@@ -140,3 +141,10 @@ function pushbutton3_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 line_segment_properties
+
+
+% --- Executes on button press in pushbutton4.
+function pushbutton4_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton4 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)

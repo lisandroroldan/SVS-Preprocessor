@@ -22,7 +22,7 @@ function varargout = line_segment_properties(varargin)
 
 % Edit the above text to modify the response to help line_segment_properties
 
-% Last Modified by GUIDE v2.5 23-Oct-2018 09:53:20
+% Last Modified by GUIDE v2.5 23-Oct-2018 15:02:30
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -106,6 +106,11 @@ end
 c=SVS.LINE_SECTIONS{1}.segments{1}.constant_press_change;
 set(handles.edit5,'String',c);
 
+%Form 3B
+handles.uitable1.Data=SVS.LINE_SECTIONS{1}.segments{1}.perimeter_roughness_matrix;
+handles.uitable1.ColumnWidth={45 45 45 45 45 45 45 45};
+handles.uitable1.ColumnEditable=[true,true,true,true,true,true,true,true];
+
 %Form 3C
 c=SVS.LINE_SECTIONS{1}.segments{1}.head_loss_positive_foward_lim;
 set(handles.edit6,'String',c);
@@ -127,6 +132,41 @@ set(handles.edit11,'String',c);
 
 c=SVS.LINE_SECTIONS{1}.segments{1}.n_steady_heat_sources;
 set(handles.edit12,'String',c);
+
+%Form 3D
+handles.uitable2.Data=SVS.LINE_SECTIONS{1}.segments{1}.steady_heat_source_prop;
+handles.uitable2.ColumnWidth=num2cell(45*ones(1,20));
+handles.uitable2.ColumnEditable=true(ones(1,20));
+
+%Form 3E
+handles.uitable3.Data=SVS.LINE_SECTIONS{1}.segments{1}.wall_surf_air_prop;
+handles.uitable3.ColumnWidth=num2cell(45*ones(1,20));
+handles.uitable3.ColumnEditable=true(ones(1,20));
+
+%Form 3F
+c=SVS.LINE_SECTIONS{1}.segments{1}.tunnel_wall_thickness;
+set(handles.edit13,'String',c);
+c=SVS.LINE_SECTIONS{1}.segments{1}.dist_adjacent;
+set(handles.edit14,'String',c);
+c=SVS.LINE_SECTIONS{1}.segments{1}.tunnel_wall_cond;
+set(handles.edit15,'String',c);
+c=SVS.LINE_SECTIONS{1}.segments{1}.tunnel_wall_diff;
+set(handles.edit16,'String',c);
+c=SVS.LINE_SECTIONS{1}.segments{1}.soil_cond;
+set(handles.edit17,'String',c);
+c=SVS.LINE_SECTIONS{1}.segments{1}.soil_diff;
+set(handles.edit18,'String',c);
+c=SVS.LINE_SECTIONS{1}.segments{1}.deep_sink_temp;
+set(handles.edit19,'String',c);
+
+
+c=SVS.LINE_SECTIONS{1}.segments{1}.head_loss_negative_backward_lim;
+set(handles.edit9,'String',c);  
+
+
+
+% c=SVS.LINE_SECTIONS{1}.segments{1}.head_loss_negative_backward_lim;
+% set(handles.edit9,'String',c);
 
 % --- Outputs from this function are returned to the command line.
 function varargout = line_segment_properties_OutputFcn(hObject, eventdata, handles) 
@@ -569,6 +609,36 @@ SVS.LINE_SECTIONS{sec}.segments{seg}.n_subsegments=val;
 val=get(handles.edit12, 'String');
 SVS.LINE_SECTIONS{sec}.segments{seg}.n_steady_heat_sources=val;
 
+val=get(handles.uitable1, 'Data');
+SVS.LINE_SECTIONS{sec}.segments{seg}.perimeter_roughness_matrix=val;
+
+val=get(handles.uitable2, 'Data');
+SVS.LINE_SECTIONS{sec}.segments{seg}.steady_heat_source_prop=val;
+
+val=get(handles.uitable3, 'Data');
+SVS.LINE_SECTIONS{sec}.segments{seg}.wall_surf_air_prop=val;
+
+val=get(handles.edit13, 'String');
+SVS.LINE_SECTIONS{sec}.segments{seg}.tunnel_wall_thickness=val;
+
+val=get(handles.edit14, 'String');
+SVS.LINE_SECTIONS{sec}.segments{seg}.dist_adjacent=val;
+
+val=get(handles.edit15, 'String');
+SVS.LINE_SECTIONS{sec}.segments{seg}.tunnel_wall_cond=val;
+
+val=get(handles.edit16, 'String');
+SVS.LINE_SECTIONS{sec}.segments{seg}.tunnel_wall_diff=val;
+
+val=get(handles.edit17, 'String');
+SVS.LINE_SECTIONS{sec}.segments{seg}.soil_cond=val;
+
+val=get(handles.edit18, 'String');
+SVS.LINE_SECTIONS{sec}.segments{seg}.soil_diff=val;
+
+val=get(handles.edit19, 'String');
+SVS.LINE_SECTIONS{sec}.segments{seg}.deep_sink_temp=val;
+
 % --- Executes on button press in pushbutton2.
 function pushbutton2_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton2 (see GCBO)
@@ -685,6 +755,10 @@ function refresh(n,m,handles)
 
     c=SVS.LINE_SECTIONS{n}.segments{m}.constant_press_change;
     set(handles.edit5,'String',c);
+    
+    %Form 3B
+    c=SVS.LINE_SECTIONS{n}.segments{m}.perimeter_roughness_matrix;
+    set(handles.uitable1,'Data',c);
 
     %Form 3C
     c=SVS.LINE_SECTIONS{n}.segments{m}.head_loss_positive_foward_lim;
@@ -708,4 +782,145 @@ function refresh(n,m,handles)
     c=SVS.LINE_SECTIONS{n}.segments{m}.n_steady_heat_sources;
     set(handles.edit12,'String',c);
     
+    %Form 3D
+    c=SVS.LINE_SECTIONS{n}.segments{m}.steady_heat_source_prop;
+    set(handles.uitable2,'Data',c);
     
+    %Form 3E
+    c=SVS.LINE_SECTIONS{n}.segments{m}.wall_surf_air_prop;
+    set(handles.uitable3,'Data',c); 
+    
+    %Form 3F
+    c=SVS.LINE_SECTIONS{n}.segments{m}.tunnel_wall_thickness;
+    set(handles.edit13,'String',c); 
+    
+    c=SVS.LINE_SECTIONS{n}.segments{m}.dist_adjacent;
+    set(handles.edit14,'String',c); 
+    
+    c=SVS.LINE_SECTIONS{n}.segments{m}.tunnel_wall_cond;
+    set(handles.edit15,'String',c); 
+    
+    c=SVS.LINE_SECTIONS{n}.segments{m}.tunnel_wall_diff;
+    set(handles.edit16,'String',c); 
+    
+    c=SVS.LINE_SECTIONS{n}.segments{m}.soil_cond;
+    set(handles.edit17,'String',c); 
+
+    c=SVS.LINE_SECTIONS{n}.segments{m}.soil_diff;
+    set(handles.edit18,'String',c); 
+    
+    c=SVS.LINE_SECTIONS{n}.segments{m}.deep_sink_temp;
+    set(handles.edit19,'String',c); 
+
+function edit15_Callback(hObject, eventdata, handles)
+% hObject    handle to edit15 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit15 as text
+%        str2double(get(hObject,'String')) returns contents of edit15 as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit15_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit15 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit16_Callback(hObject, eventdata, handles)
+% hObject    handle to edit16 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit16 as text
+%        str2double(get(hObject,'String')) returns contents of edit16 as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit16_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit16 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit17_Callback(hObject, eventdata, handles)
+% hObject    handle to edit17 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit17 as text
+%        str2double(get(hObject,'String')) returns contents of edit17 as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit17_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit17 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit18_Callback(hObject, eventdata, handles)
+% hObject    handle to edit18 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit18 as text
+%        str2double(get(hObject,'String')) returns contents of edit18 as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit18_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit18 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit19_Callback(hObject, eventdata, handles)
+% hObject    handle to edit19 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit19 as text
+%        str2double(get(hObject,'String')) returns contents of edit19 as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit19_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit19 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
