@@ -22,7 +22,7 @@ function varargout = main_gui(varargin)
 
 % Edit the above text to modify the response to help main_gui
 
-% Last Modified by GUIDE v2.5 19-Oct-2018 16:02:50
+% Last Modified by GUIDE v2.5 22-Oct-2018 15:28:35
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -46,6 +46,8 @@ end
 
 % --- Executes just before main_gui is made visible.
 function [SVS] = main_gui_OpeningFcn(hObject, eventdata, handles, varargin)
+clear SVS;
+clear -global; 
 % This function has no output args, see OutputFcn.
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -61,7 +63,7 @@ handles.output = hObject;
 guidata(hObject, handles);
 
 % Create problem variable
-clear -global
+
 global SVS;
 SVS=struct;
 
@@ -110,6 +112,8 @@ for i=1:max(max(A))
     end
 end
 SVS.GENERAL_DATA.n_br_junct=c;
+
+segment_structure; 
  
 
 % --- Executes on key press with focus on pushbutton1 and none of its controls.
@@ -128,3 +132,11 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 general_data_gui
+
+
+% --- Executes on button press in pushbutton3.
+function pushbutton3_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+line_segment_properties
