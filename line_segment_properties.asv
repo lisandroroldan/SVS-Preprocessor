@@ -581,10 +581,6 @@ function pushbutton3_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton3 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global SVS
-sec=get(handles.popupmenu1,'Value');
-seg=get(handles.popupmenu2,'Value');
-
 val=get(handles.edit12, 'String');
 SVS.LINE_SECTIONS{sec}.segments{seg}.n_steady_heat_sources=val;
 form_3d

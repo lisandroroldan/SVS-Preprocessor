@@ -3,17 +3,16 @@ classdef line_segment_class
 properties
  %FORM3A
  section_id
- id_title
  line_segment_type
+ id_title
  length
  cross_section_area
  stack_height
  fire_segment
  constant_press_change
- %FORM3B
  perimeter
  roughness_length
- %FORM3C
+ %FORM3B
  head_loss_positive_foward_lim
  head_loss_negative_foward_lim
  head_loss_positive_backward_lim
@@ -21,8 +20,6 @@ properties
  wet_wall_surf
  n_subsegments
  n_steady_heat_sources
- %FORM3D
-
 end
 
 methods
