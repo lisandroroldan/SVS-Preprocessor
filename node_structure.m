@@ -20,8 +20,8 @@ for i=1:n
     
     
     
-    SVS.NODE_DATA{i}=node_class(id_n,branches);
+    SVS.NODES{i}=node_class(id_n,branches);
 end
 
-SVS.LINE_SECTIONS
+
 

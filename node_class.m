@@ -3,11 +3,10 @@ classdef node_class
 properties
     id_n
     branches
-    aerodynamic_type
-    thermodynamic_type
-    node_properties
-    
-    
+    aerodynamic_type=0; %default
+    thermodynamic_type=1; %default
+    node_prop
+    node_prop_thermo
 
 end
 
@@ -17,23 +16,6 @@ methods
         obj.id_n = id_n;
         obj.branches = branches;
     end
-    
-    %Node properties assign, depending on the aerodynamic type
-    function obj = assign_property(aerodynamic_type)
-        switch aerodynamic_type
-            case 0
-            case 1
-            case 2
-            case 3
-            case 4
-            case 5
-            case 6
-            case 7
-            case 8
-        end
-    end
-    
-    
 end
 
 end

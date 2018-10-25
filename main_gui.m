@@ -115,6 +115,7 @@ SVS.GENERAL_DATA.n_br_junct=c;
 
 segment_structure;
 vent_shaft_structure;
+node_structure;
  
 
 % --- Executes on key press with focus on pushbutton1 and none of its controls.
