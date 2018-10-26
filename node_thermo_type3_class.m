@@ -1,4 +1,4 @@
-classdef node_thermo_type1_class
+classdef node_thermo_type3_class
     %UNTITLED11 Summary of this class goes here
     %   Detailed explanation goes here
     

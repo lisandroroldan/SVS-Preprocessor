@@ -239,21 +239,6 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 global SVS
 global aux
 
-dry_bulb_temp=get(handles.edit1,'String');
-wet_bulb_temp=get(handles.edit2,'String');
-morning_dry_bulb_temp=get(handles.edit3,'String');
-morning_wet_bulb_temp=get(handles.edit4,'String');
-evening_dry_bulb_temp=get(handles.edit5,'String');
-evening_wet_bulb_temp=get(handles.edit6,'String');
-
-SVS.NODES{aux}.node_prop_thermo.dry_bulb_temp=dry_bulb_temp;
-SVS.NODES{aux}.node_prop_thermo.wet_bulb_temp=wet_bulb_temp;
-SVS.NODES{aux}.node_prop_thermo.morning_dry_bulb_temp=morning_dry_bulb_temp;
-SVS.NODES{aux}.node_prop_thermo.morning_wet_bulb_temp=morning_wet_bulb_temp;
-SVS.NODES{aux}.node_prop_thermo.evening_dry_bulb_temp=evening_dry_bulb_temp;
-SVS.NODES{aux}.node_prop_thermo.evening_wet_bulb_temp=evening_wet_bulb_temp;
-
-close(form_6b);
 
 
 
@@ -263,4 +248,4 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-close(form_6b);
+close(6b);
