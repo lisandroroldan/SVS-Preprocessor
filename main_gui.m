@@ -22,7 +22,7 @@ function varargout = main_gui(varargin)
 
 % Edit the above text to modify the response to help main_gui
 
-% Last Modified by GUIDE v2.5 24-Oct-2018 16:41:11
+% Last Modified by GUIDE v2.5 26-Oct-2018 16:02:23
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -158,3 +158,33 @@ function pushbutton5_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 node_properties_gui
+
+
+% --- Executes on button press in pushbutton6.
+function pushbutton6_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton6 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in pushbutton7.
+function pushbutton7_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton7 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global SVS;
+SVS_saved=SVS;
+save('project.mat','SVS_saved')
+
+
+% --- Executes on button press in pushbutton8.
+function pushbutton8_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton8 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% clear -global;
+% global SVS;
+load('project.mat');
+global SVS
+SVS=SVS_saved;
+plot_network(SVS.INPUT_GEOMETRY.nodes,SVS.INPUT_GEOMETRY.line_sections,SVS.INPUT_GEOMETRY.vent_sections)

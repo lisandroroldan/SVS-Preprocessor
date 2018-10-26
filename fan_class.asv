@@ -1,0 +1,28 @@
+classdef fan_class
+
+properties
+    fan_n
+    fan_identification
+    reference_air_density
+    t_full_speed
+    lower_flow_limit
+    upper_flow_limit
+    exaust_pressure_curve
+    supply_pressure_curve
+    impulse_static_thrust
+    impulse_pressure_eff
+    impulse_nozzle_dis_vel
+    t_impulse_on
+    t_impulse_off
+    reference_air_density_thrust
+    derating_option
+end
+
+methods
+    %Constructor
+    function obj = fan_class(fan_id)
+       obj.fan_id=fan_id;
+    end
+end
+
+end
