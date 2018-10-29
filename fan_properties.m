@@ -22,7 +22,7 @@ function varargout = fan_properties(varargin)
 
 % Edit the above text to modify the response to help fan_properties
 
-% Last Modified by GUIDE v2.5 26-Oct-2018 14:36:43
+% Last Modified by GUIDE v2.5 29-Oct-2018 11:04:07
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -60,7 +60,29 @@ guidata(hObject, handles);
 
 % UIWAIT makes fan_properties wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
+global SVS;
+global aux;
 
+if isfield(SVS,'FAN_TYPES')==1
+    n_fans=size(SVS.FAN_TYPES,2);
+    for i=1:n_fans
+        fan_id{i}=SVS.FAN_TYPES{i}.fan_identification;
+    end  
+    set(handles.popupmenu1,'String',fan_id);
+else
+    set(handles.popupmenu1,'String','Empty');
+end
+  
+if isfield(SVS,'AIR_CURTAINS')==1
+    n_fans=size(SVS.AIR_CURTAINS,2);
+    for i=1:n_fans
+        airc_id{i}=SVS.AIR_CURTAINS{i}.air_curtain_id;
+    end  
+    set(handles.popupmenu2,'String',airc_id);
+else
+    set(handles.popupmenu2,'String','Empty');
+end
+        
 
 % --- Outputs from this function are returned to the command line.
 function varargout = fan_properties_OutputFcn(hObject, eventdata, handles) 
@@ -102,12 +124,21 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
+global SVS
+global aux
+
+if isfield(SVS,'FAN_TYPES')==1
+    aux=get(handles.popupmenu1,'Value');
+    form_7
+end
+
 
 % --- Executes on button press in pushbutton2.
 function pushbutton2_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+close(fan_properties)
 
 
 % --- Executes on button press in pushbutton3.
@@ -120,5 +151,108 @@ function pushbutton3_Callback(hObject, eventdata, handles)
 % --- Executes on button press in pushbutton4.
 function pushbutton4_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton4 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global SVS
+global aux
+if isfield(SVS,'FAN_TYPES')==0
+    aux=1;
+    SVS.FAN_TYPES{aux}=fan_class(aux);
+else
+    aux=size(SVS.FAN_TYPES,2)+1;
+    SVS.FAN_TYPES{aux}=fan_class(aux);
+end
+form_7
+
+if isfield(SVS,'FAN_TYPES')==1
+    n_fans=size(SVS.FAN_TYPES,2);
+    for i=1:n_fans
+        fan_id{i}=SVS.FAN_TYPES{i}.fan_identification;
+    end  
+    set(handles.popupmenu1,'String',fan_id);
+else
+    set(handles.popupmenu1,'String','Empty');
+end
+  
+
+
+% --- Executes on button press in pushbutton5.
+function pushbutton5_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton5 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global SVS
+global aux
+if isfield(SVS,'AIR_CURTAINS')==0
+    aux=1;
+    SVS.AIR_CURTAINS{aux}=air_curtain_class(aux);
+else
+    aux=size(SVS.AIR_CURTAINS,2)+1;
+    SVS.AIR_CURTAINS{aux}=air_curtain_class(aux);
+end
+form_7d
+
+if isfield(SVS,'AIR_CURTAINS')==1
+    n_fans=size(SVS.AIR_CURTAINS,2);
+    for i=1:n_fans
+        airc_id{i}=SVS.AIR_CURTAINS{i}.air_curtain_id;
+    end  
+    set(handles.popupmenu2,'String',airc_id);
+else
+    set(handles.popupmenu2,'String','Empty');
+end
+
+% --- Executes on selection change in popupmenu2.
+function popupmenu2_Callback(hObject, eventdata, handles)
+% hObject    handle to popupmenu2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: contents = cellstr(get(hObject,'String')) returns popupmenu2 contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from popupmenu2
+
+
+% --- Executes during object creation, after setting all properties.
+function popupmenu2_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to popupmenu2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: popupmenu controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on button press in pushbutton6.
+function pushbutton6_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton6 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global SVS
+global aux
+
+if isfield(SVS,'AIR_CURTAINS')==1
+    aux=get(handles.popupmenu2,'Value');
+    form_7d
+end
+
+
+% --- Executes on button press in pushbutton7.
+function pushbutton7_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton7 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global SVS
+
+
+
+
+
+
+% --- Executes on button press in pushbutton8.
+function pushbutton8_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton8 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
