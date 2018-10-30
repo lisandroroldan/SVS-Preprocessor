@@ -22,7 +22,7 @@ function varargout = main_gui(varargin)
 
 % Edit the above text to modify the response to help main_gui
 
-% Last Modified by GUIDE v2.5 26-Oct-2018 16:02:23
+% Last Modified by GUIDE v2.5 29-Oct-2018 16:19:18
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -189,3 +189,17 @@ load('project.mat');
 global SVS
 SVS=SVS_saved;
 plot_network(SVS.INPUT_GEOMETRY.nodes,SVS.INPUT_GEOMETRY.line_sections,SVS.INPUT_GEOMETRY.vent_sections)
+
+
+% --- Executes on button press in pushbutton9.
+function pushbutton9_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton9 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in pushbutton10.
+function pushbutton10_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton10 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
