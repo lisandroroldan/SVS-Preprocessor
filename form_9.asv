@@ -1369,7 +1369,7 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-close(form_9)
+
 
 % --- Executes on button press in pushbutton2.
 function pushbutton2_Callback(hObject, eventdata, handles)
@@ -1523,33 +1523,8 @@ SVS.TRAIN_DATA{aux}.chopper_regenerative_braking=val;
 %No se permite onboard flywheel simulation
 SVS.TRAIN_DATA{aux}.onboad_flywheel_option=1;
 
-%FORM 9H-A
-SVS.TRAIN_DATA{aux}.motor_eff=handles.uitable4.Data;
 
-val=get(handles.edit41,'String');
-SVS.TRAIN_DATA{aux}.base_motor_eff=val;
 
-val=get(handles.edit42,'String');
-SVS.TRAIN_DATA{aux}.power_E_regenerative_braking=val;
-
-%FORM 9I
-SVS.TRAIN_DATA{aux}.resistance_speed=handles.uitable5.Data;
-
-%FORM 9J
-val=get(handles.edit45,'String');
-SVS.TRAIN_DATA{aux}.max_acceleration=val;
-
-val=get(handles.edit46,'String');
-SVS.TRAIN_DATA{aux}.normal_desacceleration_V1=val;
-
-val=get(handles.edit47,'String');
-SVS.TRAIN_DATA{aux}.V1=val;
-
-val=get(handles.edit48,'String');
-SVS.TRAIN_DATA{aux}.normal_desacceleration_V2=val;
-
-val=get(handles.edit49,'String');
-SVS.TRAIN_DATA{aux}.V2=val;
 
 function edit45_Callback(hObject, eventdata, handles)
 % hObject    handle to edit45 (see GCBO)
