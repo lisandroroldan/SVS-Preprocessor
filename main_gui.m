@@ -95,7 +95,8 @@ SVS.INPUT_GEOMETRY.line_sections=load('line_sections.txt');
 SVS.INPUT_GEOMETRY.vent_sections=load('vent_sections.txt');
 
 axes(handles.axes1);
- plot_network(SVS.INPUT_GEOMETRY.nodes,SVS.INPUT_GEOMETRY.line_sections,SVS.INPUT_GEOMETRY.vent_sections)
+colors=1;
+ plot_network(SVS.INPUT_GEOMETRY.nodes,SVS.INPUT_GEOMETRY.line_sections,SVS.INPUT_GEOMETRY.vent_sections,colors)
  
  
 SVS.GENERAL_DATA.n_nodes=size(SVS.INPUT_GEOMETRY.nodes,1);
@@ -188,7 +189,8 @@ function pushbutton8_Callback(hObject, eventdata, handles)
 load('project.mat');
 global SVS
 SVS=SVS_saved;
-plot_network(SVS.INPUT_GEOMETRY.nodes,SVS.INPUT_GEOMETRY.line_sections,SVS.INPUT_GEOMETRY.vent_sections)
+colors=1;
+plot_network(SVS.INPUT_GEOMETRY.nodes,SVS.INPUT_GEOMETRY.line_sections,SVS.INPUT_GEOMETRY.vent_sections,colors)
 
 
 % --- Executes on button press in pushbutton9.
@@ -196,6 +198,7 @@ function pushbutton9_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton9 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+train_properties
 
 
 % --- Executes on button press in pushbutton10.
